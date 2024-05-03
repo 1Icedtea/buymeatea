@@ -7,6 +7,8 @@ import { signIn, signOut } from "next-auth/react";
 import { Session } from "next-auth";
 
 export default function Header({ session }: { session: Session | null }) {
+  const name = session?.user?.name || "";
+  const firstName = name?.split(" ")[0];
   return (
     <>
       <header className="mb-8">
@@ -24,15 +26,15 @@ export default function Header({ session }: { session: Session | null }) {
             </Link>
             <div className="flex gap-4">
               {session && (
-                <>
-                  Hello, {session.user?.name}
+                <div className="flex items-center gap-3">
+                  Hello, {firstName}
                   <button
                     onClick={() => signOut()}
                     className="bg-yellow-400 rounded-full px-4 py-2"
                   >
                     Logout
                   </button>
-                </>
+                </div>
               )}
               {!session && (
                 <>
