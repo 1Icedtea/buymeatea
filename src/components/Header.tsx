@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMugHot } from "@fortawesome/free-solid-svg-icons";
+import { faMugHot, faUser } from "@fortawesome/free-solid-svg-icons";
 import { signIn, signOut } from "next-auth/react";
 import { Session } from "next-auth";
+import Image from "next/image";
 
 export default function Header({ session }: { session: Session | null }) {
   const name = session?.user?.name || "";
@@ -26,8 +27,15 @@ export default function Header({ session }: { session: Session | null }) {
             </Link>
             <div className="flex gap-4">
               {session && (
-                <div className="flex items-center gap-3">
-                  Hello, {firstName}
+                <div className="flex items-center gap-2 shadow-md rounded-full px-2 py-1 mb-2">
+                  <Image
+                    src={session.user?.image}
+                    alt="user"
+                    width={30}
+                    height={30}
+                    className="rounded-full"
+                  />
+                  {firstName}
                   <button
                     onClick={() => signOut()}
                     className="bg-yellow-400 rounded-full px-4 py-2"
