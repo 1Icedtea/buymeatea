@@ -1,25 +1,37 @@
 "use server";
+import "../globals.css";
 
-import { Session } from "next-auth";
-
-export default async function ProfilePage({
-  session,
-}: {
-  session: Session | null;
-}) {
+export default async function ProfilePage() {
   return (
     <>
-      {JSON.stringify(session)}
       <div className="max-w-2xl mx-auto px-4">
-        <div>avatar</div>
-        <div>cover image</div>
-        <div>
-          <input type="text" name="url" placeholder="username" />
+        <div className="bg-gray-200 p-4 rounded-lg">
+          <div className="bg-gray-300 size-20 rounded-full p-2">avatar</div>
+          <div>cover image</div>
         </div>
         <div>
-          <input type="text" name="displayName" placeholder="displayName" />
+          <label htmlFor="usernameInput">Username</label>
+          <input
+            type="text"
+            name="url"
+            id="usernameInput"
+            placeholder="username"
+          />
         </div>
-        <textarea name="" placeholder="userbio"></textarea>
+        <div>
+          <label htmlFor="displayNameInput">Display Name</label>
+          <input
+            type="text"
+            name="displayName"
+            id="displayNameInput"
+            placeholder="displayName"
+          />
+        </div>
+        <label htmlFor="bioInput">Bio</label>
+        <textarea name="" id="bioInput" placeholder="userbio"></textarea>
+        <div>
+          <button className="save-profile-btn">Save profile</button>
+        </div>
         <div>donations list</div>
       </div>
     </>
