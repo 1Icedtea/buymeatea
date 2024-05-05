@@ -11,6 +11,7 @@ import "./styles.css";
 export default function Header({ session }: { session: Session | null }) {
   const name = session?.user?.name || "";
   const firstName = name?.split(" ")[0];
+  // const tempUsername = session?.user?.email?.replace(/[^a-z]/g, "");
 
   return (
     <>
@@ -30,9 +31,11 @@ export default function Header({ session }: { session: Session | null }) {
             <div className="flex gap-4">
               {session && (
                 <div className="flex items-center gap-2 shadow-md userAvatar rounded-full px-1 py-1 mb-2">
-                  <button
-                    onClick={() => signOut()}
+                  <Link
+                    // onClick={() => signOut()} Signs out user, disabled temporarily until further styling decisions are finalized
                     className="flex items-center gap-2 rounded-full px-4 py-1"
+                    // href={"/" + tempUsername}
+                    href={"/profile"}
                   >
                     <Image
                       src={session.user?.image as string}
@@ -42,7 +45,7 @@ export default function Header({ session }: { session: Session | null }) {
                       className="rounded-full"
                     />
                     {firstName}
-                  </button>
+                  </Link>
                 </div>
               )}
               {!session && (
