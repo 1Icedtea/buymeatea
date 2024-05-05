@@ -6,17 +6,19 @@ import { faMugHot, faUser } from "@fortawesome/free-solid-svg-icons";
 import { signIn, signOut } from "next-auth/react";
 import { Session } from "next-auth";
 import Image from "next/image";
+import "./styles.css";
 
 export default function Header({ session }: { session: Session | null }) {
   const name = session?.user?.name || "";
   const firstName = name?.split(" ")[0];
+
   return (
     <>
       <header className="mb-8">
         <div className="flex justify-between max-w-xl mx-auto px-4 py-4">
           <Link className="inline-flex gap-1 items-center" href={"/"}>
-            <FontAwesomeIcon className="h-8 text-yellow-400" icon={faMugHot} />
-            <span className="mt-2 font-bold">TeaMate</span>
+            <FontAwesomeIcon className="h-8 logo" icon={faMugHot} />
+            <span className="mt-2 font-bold logoText">TeaMate</span>
           </Link>
           <nav className="mt-2 flex gap-4 items-center font-bold">
             <Link className="" href={"/about"}>
@@ -27,20 +29,19 @@ export default function Header({ session }: { session: Session | null }) {
             </Link>
             <div className="flex gap-4">
               {session && (
-                <div className="flex items-center gap-2 shadow-md rounded-full px-2 py-1 mb-2">
-                  <Image
-                    src={session.user?.image}
-                    alt="user"
-                    width={30}
-                    height={30}
-                    className="rounded-full"
-                  />
-                  {firstName}
+                <div className="flex items-center gap-2 shadow-md userAvatar rounded-full px-1 py-1 mb-2">
                   <button
                     onClick={() => signOut()}
-                    className="bg-yellow-400 rounded-full px-4 py-2"
+                    className="flex items-center gap-2 rounded-full px-4 py-1"
                   >
-                    Logout
+                    <Image
+                      src={session.user?.image as string}
+                      alt="user"
+                      width={30}
+                      height={30}
+                      className="rounded-full"
+                    />
+                    {firstName}
                   </button>
                 </div>
               )}

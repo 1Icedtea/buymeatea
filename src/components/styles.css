@@ -7,6 +7,15 @@
   --bg-secondary: #522a28;
 }
 
-.main-btn {
+.logo {
+  color: var(--bg-primary);
+}
+
+.logoText {
+  color: var(--bg-secondary);
+}
+
+.userAvatar {
+  color: var(--bg-secondary);
   background-color: var(--bg-primary);
 }
