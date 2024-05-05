@@ -1,4 +1,5 @@
 "use server";
+import "../globals.css";
 
 export default async function ProfilePage() {
   return (
@@ -9,14 +10,27 @@ export default async function ProfilePage() {
           <div>cover image</div>
         </div>
         <div>
-          <input type="text" name="url" placeholder="username" />
+          <label htmlFor="usernameInput">Username</label>
+          <input
+            type="text"
+            name="url"
+            id="usernameInput"
+            placeholder="username"
+          />
         </div>
         <div>
-          <input type="text" name="displayName" placeholder="displayName" />
+          <label htmlFor="displayNameInput">Display Name</label>
+          <input
+            type="text"
+            name="displayName"
+            id="displayNameInput"
+            placeholder="displayName"
+          />
         </div>
-        <textarea name="" placeholder="userbio"></textarea>
+        <label htmlFor="bioInput">Bio</label>
+        <textarea name="" id="bioInput" placeholder="userbio"></textarea>
         <div>
-          <button>save profile</button>
+          <button className="save-profile-btn">Save profile</button>
         </div>
         <div>donations list</div>
       </div>
