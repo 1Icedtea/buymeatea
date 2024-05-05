@@ -17,7 +17,7 @@ export default function ProfileInfoForm() {
         <label htmlFor="usernameInput">Username</label>
         <input
           type="text"
-          name="url"
+          name="username"
           id="usernameInput"
           placeholder="username"
         />
@@ -32,7 +32,7 @@ export default function ProfileInfoForm() {
         />
       </div>
       <label htmlFor="bioInput">Bio</label>
-      <textarea name="" id="bioInput" placeholder="userbio"></textarea>
+      <textarea name="bio" id="bioInput" placeholder="userbio"></textarea>
       <div>
         <button className="save-profile-btn">Save profile</button>
       </div>
