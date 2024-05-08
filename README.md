@@ -4,6 +4,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
+Add the following to the ENV:
+Google Client ID and Secret,
+MongoDB URI,
+AWS Access Key, Secret Key, Bucketname
+
 ```bash
 npm run dev
 # or
