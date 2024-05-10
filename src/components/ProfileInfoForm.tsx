@@ -4,8 +4,13 @@ import { saveProfile } from "@/actions/profileInfoActions";
 import "./styles.css";
 import UploadButton from "./UploadButton";
 import { useState } from "react";
+import { ProfileInfo } from "@/models/ProfileInfo";
 
-export default function ProfileInfoForm() {
+type Props = {
+  profileInfo: ProfileInfo | null;
+};
+
+export default function ProfileInfoForm({ profileInfo }: Props) {
   const [coverURL, setCoverURL] = useState("");
 
   async function handleFormAction(formData: FormData) {
@@ -20,12 +25,18 @@ export default function ProfileInfoForm() {
         <div>
           {/* cover image */}
           <UploadButton onUploadComplete={setCoverURL} />
-          <input type="hidden" name="coverURL" value={coverURL} />
+          <input
+            defaultValue={profileInfo?.coverURL}
+            type="hidden"
+            name="coverURL"
+            value={coverURL}
+          />
         </div>
       </div>
       <div>
         <label htmlFor="usernameInput">Username</label>
         <input
+          defaultValue={profileInfo?.username}
           type="text"
           name="username"
           id="usernameInput"
@@ -35,6 +46,7 @@ export default function ProfileInfoForm() {
       <div>
         <label htmlFor="displayNameInput">Display Name</label>
         <input
+          defaultValue={profileInfo?.displayName}
           type="text"
           name="displayName"
           id="displayNameInput"
@@ -42,7 +54,12 @@ export default function ProfileInfoForm() {
         />
       </div>
       <label htmlFor="bioInput">Bio</label>
-      <textarea name="bio" id="bioInput" placeholder="userbio"></textarea>
+      <textarea
+        defaultValue={profileInfo?.bio}
+        name="bio"
+        id="bioInput"
+        placeholder="userbio"
+      ></textarea>
       <div>
         <button className="save-profile-btn">Save profile</button>
       </div>
