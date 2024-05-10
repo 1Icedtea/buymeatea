@@ -11,14 +11,14 @@ export async function saveProfile(formData: FormData) {
   if (!session) throw "user not logged in...";
 
   //get all data from form
-  const { username, displayName, bio } = Object.fromEntries(formData);
+  const { username, displayName, bio, coverURL } = Object.fromEntries(formData);
 
   const profileInfoDoc = await ProfileInfoModel.findOne({ email });
   if (profileInfoDoc) {
-    profileInfoDoc.set({ username, displayName, bio });
+    profileInfoDoc.set({ username, displayName, bio, coverURL });
     await profileInfoDoc.save();
   } else {
-    ProfileInfoModel.create({ username, displayName, bio, email });
+    ProfileInfoModel.create({ username, displayName, bio, email, coverURL });
   }
 
   return true;
