@@ -24,7 +24,7 @@ export async function uploadToS3(formData: FormData) {
   }
 
   const buffer = Buffer.concat(chunks);
-  const bucketName = process.env.AMAZON_BUCKET;
+  const bucketName = process.env.AWS_BUCKET;
 
   //send buffer data to S3
   await s3Client.send(
