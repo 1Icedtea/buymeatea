@@ -24,9 +24,9 @@ export async function uploadToS3(formData: FormData) {
   }
 
   const buffer = Buffer.concat(chunks);
+  const bucketName = process.env.AMAZON_BUCKET;
 
   //send buffer data to S3
-
   await s3Client.send(
     new PutObjectCommand({
       Bucket: process.env.AWS_BUCKET as string,
@@ -40,5 +40,6 @@ export async function uploadToS3(formData: FormData) {
   return {
     newFileName,
     extension,
+    url: `https://${bucketName}.s3.amazonaws.com/${newFileName}`,
   };
 }

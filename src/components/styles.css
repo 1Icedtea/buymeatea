@@ -7,6 +7,10 @@
   --bg-secondary: #522a28;
 }
 
+label {
+  @apply text-[var(--bg-secondary)] hover:text-[var(--bg-primary)];
+}
+
 .logo {
   color: var(--bg-primary);
 }

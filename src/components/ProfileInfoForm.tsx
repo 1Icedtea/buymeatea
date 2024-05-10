@@ -3,6 +3,7 @@
 import { saveProfile } from "@/actions/profileInfoActions";
 import { uploadToS3 } from "@/actions/uploadActions";
 import { ChangeEvent } from "react";
+import "./styles.css";
 
 export default function ProfileInfoForm() {
   async function handleFormAction(formData: FormData) {
@@ -19,13 +20,21 @@ export default function ProfileInfoForm() {
       console.log(await uploadToS3(formData));
     }
   }
+
   return (
     <form action={handleFormAction}>
       <div className="bg-gray-200 p-4 rounded-lg">
         <div className="bg-gray-300 size-20 rounded-full p-2">avatar</div>
         <div>
-          cover image
+          {/* cover image */}
+          <label
+            htmlFor="inputFile"
+            className="font-bold italic transition-all"
+          >
+            Upload
+          </label>
           <input
+            className="hidden"
             type="file"
             name="coverFile"
             id="inputFile"
