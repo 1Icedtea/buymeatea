@@ -57,33 +57,37 @@ export default function ProfileInfoForm({ profileInfo }: Props) {
           <input type="hidden" name="coverURL" value={coverURL} />
         </div>
       </div>
-      <div>
-        <label htmlFor="usernameInput">Username</label>
-        <input
-          defaultValue={profileInfo?.username}
-          type="text"
-          name="username"
-          id="usernameInput"
-          placeholder="username"
-        />
-      </div>
-      <div>
-        <label htmlFor="displayNameInput">Display Name</label>
-        <input
-          defaultValue={profileInfo?.displayName}
-          type="text"
-          name="displayName"
-          id="displayNameInput"
-          placeholder="displayName"
-        />
-      </div>
-      <label htmlFor="bioInput">Bio</label>
-      <textarea
-        defaultValue={profileInfo?.bio}
-        name="bio"
-        id="bioInput"
-        placeholder="userbio"
-      ></textarea>
+      <section className="userFormInput">
+        <div className="grid grid-cols-2 gap-2">
+          <div>
+            <label htmlFor="usernameInput">Username</label>
+            <input
+              defaultValue={profileInfo?.username}
+              type="text"
+              name="username"
+              id="usernameInput"
+              placeholder="username"
+            />
+          </div>
+          <div>
+            <label htmlFor="displayNameInput">Display Name</label>
+            <input
+              defaultValue={profileInfo?.displayName}
+              type="text"
+              name="displayName"
+              id="displayNameInput"
+              placeholder="displayName"
+            />
+          </div>
+        </div>
+        <label htmlFor="bioInput">Bio</label>
+        <textarea
+          defaultValue={profileInfo?.bio}
+          name="bio"
+          id="bioInput"
+          placeholder="userbio"
+        ></textarea>
+      </section>
       <div>
         <button className="save-profile-btn">Save profile</button>
       </div>

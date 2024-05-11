@@ -18,22 +18,21 @@ export default function Header({ session }: { session: Session | null }) {
       <header className="mb-8">
         <div className="flex justify-between max-w-xl mx-auto px-4 py-4">
           <Link className="inline-flex gap-1 items-center" href={"/"}>
-            <FontAwesomeIcon className="h-8 logo" icon={faMugHot} />
+            <FontAwesomeIcon
+              className="h-8 logo hover:drop-shadow-lg"
+              icon={faMugHot}
+            />
             <span className="mt-2 font-bold logoText">TeaMate</span>
           </Link>
           <nav className="mt-2 flex gap-4 items-center font-bold">
-            <Link className="" href={"/about"}>
-              About
-            </Link>
-            <Link className="" href={"/faq"}>
-              FAQ
-            </Link>
+            <Link href={"/about"}>About</Link>
+            <Link href={"/faq"}>FAQ</Link>
             <div className="flex gap-4">
               {session && (
-                <div className="flex items-center gap-2 shadow-md userAvatar rounded-full px-1 py-1 mb-2">
+                <div className="flex items-center gap-2 shadow-md userAvatar rounded-full p-1 mb-2">
                   <Link
                     // onClick={() => signOut()} Signs out user, disabled temporarily until further styling decisions are finalized
-                    className="flex items-center gap-2 rounded-full px-4 py-1"
+                    className="flex items-center gap-2 rounded-full px-2 py-1"
                     // href={"/" + tempUsername}
                     href={"/profile"}
                   >
