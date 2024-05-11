@@ -8,6 +8,9 @@ export default function UploadButton({
 }: {
   onUploadComplete: (url: string) => void;
 }) {
+  const primaryColor = "#febe98";
+  const secondaryColor = "#522a28";
+
   async function upload(ev: ChangeEvent<HTMLInputElement>) {
     const target = ev.target as HTMLInputElement;
 
@@ -23,10 +26,13 @@ export default function UploadButton({
 
   return (
     <>
-      <label htmlFor="inputFile">
+      <label
+        htmlFor="inputFile"
+        className={`items-center gap-2 inline-flex rounded-md h-8 hover:shadow-lg transition-all`}
+      >
         <FontAwesomeIcon
           icon={faUpload}
-          className="p-1 rounded-md bg-[#febe98]"
+          className={`p-2 text-sm rounded-md bg-[${primaryColor}] text-[${secondaryColor}]`}
         />
       </label>
       <input

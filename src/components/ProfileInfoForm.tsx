@@ -6,6 +6,7 @@ import UploadButton from "./UploadButton";
 import { useState } from "react";
 import { ProfileInfo } from "@/models/ProfileInfo";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 type Props = {
   profileInfo: ProfileInfo | null;
@@ -16,13 +17,21 @@ export default function ProfileInfoForm({ profileInfo }: Props) {
   const [avatarURL, setAvatarURL] = useState(profileInfo?.avatarURL);
 
   async function handleFormAction(formData: FormData) {
-    const result = await saveProfile(formData);
-    console.log(result);
+    const promiseSave = new Promise<void>(async (resolve, reject) => {
+      await saveProfile(formData);
+      resolve();
+    });
+
+    toast.promise(promiseSave, {
+      loading: "Saving...",
+      success: <b>Profile updated!</b>,
+      error: <b>Could not save.</b>,
+    });
   }
 
   return (
     <form action={handleFormAction}>
-      <div className={`relative bg-[${coverURL}] h-48 p-4 rounded-lg mb-12`}>
+      <div className={`relative bg-[${coverURL}] h-48 p-2 rounded-lg mb-12`}>
         <Image
           src={coverURL || ""}
           alt="cover image"
@@ -43,8 +52,7 @@ export default function ProfileInfoForm({ profileInfo }: Props) {
           </div>
           <input type="hidden" name="avatarURL" value={avatarURL} />
         </div>
-        <div className="absolute right-6 bottom-0">
-          cover image
+        <div className="absolute right-4 bottom-0">
           <UploadButton onUploadComplete={setCoverURL} />
           <input type="hidden" name="coverURL" value={coverURL} />
         </div>
