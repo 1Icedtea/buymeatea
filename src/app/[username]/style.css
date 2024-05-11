@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #febe98;
+  --bg-secondary: #522a28;
+}
+
+.user-avatar-container {
+  @apply flex items-end relative max-w-xl mx-auto -mt-14;
+}
+
+.avatar-img-container {
+  @apply size-28 border-4 border-white rounded-xl m-4 overflow-hidden;
+}
+
+.user-info {
+  @apply font-semibold pb-6;
+}
