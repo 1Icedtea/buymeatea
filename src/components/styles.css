@@ -8,7 +8,7 @@
 }
 
 label {
-  @apply text-[var(--bg-secondary)] hover:text-[var(--bg-primary)];
+  @apply text-[var(--bg-secondary)] hover:text-[var(--bg-primary)] transition-all;
 }
 
 .logo {

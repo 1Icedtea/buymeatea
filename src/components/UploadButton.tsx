@@ -10,27 +10,27 @@ export default function UploadButton({
 }) {
   async function upload(ev: ChangeEvent<HTMLInputElement>) {
     const target = ev.target as HTMLInputElement;
+
     if (target.files?.length) {
       const file = target.files[0];
       const formData = new FormData();
       formData.set("file", file);
       const result = await uploadToS3(formData);
       onUploadComplete(result.url as string);
+      console.log({ result });
     }
   }
 
   return (
     <>
-      <label htmlFor="inputFile" className="font-bold italic transition-all">
+      <label htmlFor="inputFile">
         <FontAwesomeIcon icon={faUpload} />
-        Upload
       </label>
       <input
+        id="inputFile"
         className="hidden"
         type="file"
-        name="coverFile"
-        id="inputFile"
-        onChange={upload}
+        onChange={(ev) => upload(ev)}
       />
     </>
   );

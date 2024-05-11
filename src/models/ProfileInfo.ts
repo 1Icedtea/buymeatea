@@ -6,8 +6,8 @@ export type ProfileInfo = {
   username: string;
   displayName: string;
   bio: string;
-  avatarURL: string;
   coverURL: string;
+  avatarURL: string;
 };
 
 //profile schema
@@ -17,8 +17,8 @@ const ProfileInfoSchema = new Schema<ProfileInfo>(
     username: { type: String, unique: true },
     displayName: { type: String },
     bio: { type: String },
-    avatarURL: { type: String },
     coverURL: { type: String },
+    avatarURL: { type: String },
   },
   { timestamps: true }
 );
