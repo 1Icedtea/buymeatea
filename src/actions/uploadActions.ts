@@ -19,17 +19,19 @@ export async function uploadToS3(formData: FormData) {
 
   //get binary data
   const chunks = [];
+  // @ts-ignore
   for await (const chunk of file.stream()) {
     chunks.push(chunk);
   }
 
   const buffer = Buffer.concat(chunks);
-  const bucketName = process.env.AWS_BUCKET;
+
+  const bucketName = process.env.AWS_BUCKET as string;
 
   //send buffer data to S3
   await s3Client.send(
     new PutObjectCommand({
-      Bucket: process.env.AWS_BUCKET as string,
+      Bucket: bucketName,
       Key: newFileName,
       ACL: "public-read",
       Body: buffer,
