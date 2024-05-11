@@ -24,7 +24,10 @@ export default function UploadButton({
   return (
     <>
       <label htmlFor="inputFile">
-        <FontAwesomeIcon icon={faUpload} />
+        <FontAwesomeIcon
+          icon={faUpload}
+          className="p-1 rounded-md bg-[#febe98]"
+        />
       </label>
       <input
         id="inputFile"
