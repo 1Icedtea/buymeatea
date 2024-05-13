@@ -31,7 +31,7 @@ export default function ProfileInfoForm({ profileInfo }: Props) {
 
   return (
     <form action={handleFormAction}>
-      <div className={`relative bg-[${coverURL}] h-48 p-2 rounded-lg mb-12`}>
+      <div className={`user-cover-edit-container bg-[${coverURL}]`}>
         <Image
           src={coverURL || ""}
           alt="cover image"
@@ -39,7 +39,7 @@ export default function ProfileInfoForm({ profileInfo }: Props) {
           width={1020}
           className="w-full h-48 object-cover rounded-lg"
         />
-        <div className="absolute left-10 top-36 bg-gray-300 size-24 rounded-full p-1">
+        <div className="user-avatar-edit-container">
           <Image
             src={avatarURL || ""}
             alt="avatar"

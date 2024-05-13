@@ -6,6 +6,7 @@ import Image from "next/image";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";
+import DonationForm from "@/components/DonationForm";
 
 type Props = {
   params: {
@@ -33,7 +34,7 @@ export default async function ProfilePage({ params }: Props) {
             alt="Cover photo"
             height={400}
             width={1020}
-            className="h-48 object-cover"
+            className="w-full h-48 object-cover"
           />
         </div>
         <div className="user-avatar-container">
@@ -55,9 +56,17 @@ export default async function ProfilePage({ params }: Props) {
         </div>
       </header>
       <section className="max-w-xl mx-auto">
-        <div className="grid grid-cols-2 gap-4 mx-4">
-          <div>1num</div>
-          <div>2num</div>
+        <div className="grid grid-cols-2 gap-4 mx-4 text-[#81523F]">
+          <div className="rounded-md p-4 bg-[#BEE7B8] col-span-2">
+            <h3 className="font-bold">About </h3>
+            {profileInfoDoc.bio}
+            <hr className="my-4" />
+            <h3 className="font-bold">Top Supporters</h3>
+            <p>No records</p>
+          </div>
+          <div className="rounded-md p-4 bg-[#F5F2E8]">
+            <DonationForm />
+          </div>
           <div>3num</div>
           <div>4num</div>
         </div>

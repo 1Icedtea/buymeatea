@@ -21,6 +21,7 @@ export default function UploadButton({
       const result = await uploadToS3(formData);
       onUploadComplete(result.url as string);
       console.log({ result });
+      console.log(target);
     }
   }
 
@@ -34,13 +35,13 @@ export default function UploadButton({
           icon={faUpload}
           className={`p-2 text-sm rounded-md bg-[${primaryColor}] text-[${secondaryColor}]`}
         />
+        <input
+          id="inputFile"
+          className="hidden"
+          type="file"
+          onChange={(ev) => upload(ev)}
+        />
       </label>
-      <input
-        id="inputFile"
-        className="hidden"
-        type="file"
-        onChange={(ev) => upload(ev)}
-      />
     </>
   );
 }

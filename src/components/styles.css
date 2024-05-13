@@ -1,3 +1,4 @@
+/* https://coolors.co/aebd93-bee7b8-95969d-81523f-3f2a2b */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +6,8 @@
 :root {
   --bg-primary: #febe98;
   --bg-secondary: #522a28;
+  --bg-sage: #aebd93;
+  --bg-celadon: #bee7b8;
 }
 
 label {
@@ -12,19 +15,38 @@ label {
 }
 
 .logo {
-  color: var(--bg-primary);
+  @apply text-[var(--bg-primary)];
 }
 
 .logoText {
-  color: var(--bg-secondary);
+  @apply text-[var(--bg-secondary)];
+}
+
+.user-cover-edit-container {
+  @apply relative h-48 p-2 rounded-lg mb-12;
+}
+
+.user-avatar-edit-container {
+  @apply absolute left-10 top-36 bg-gray-300 size-24 rounded-full p-1;
 }
 
 .userAvatar {
-  color: var(--bg-secondary);
-  background-color: var(--bg-primary);
+  @apply text-[var(--bg-secondary)] bg-[var(--bg-primary)];
 }
 
 .userFormInput input,
 textarea {
   @apply rounded-md;
+}
+
+.amountBtn {
+  @apply rounded-full size-8 border justify-center inline-flex items-center hover:bg-[var(--bg-celadon)] transition-all;
+}
+
+input[type="text"] {
+  @apply rounded-md focus:invalid:ring-pink-500 focus:invalid:border-pink-500  invalid:border-pink-500 invalid:text-pink-600;
+}
+
+.active {
+  @apply bg-[var(--bg-celadon)];
 }
