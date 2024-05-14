@@ -35,8 +35,9 @@ label {
 }
 
 .userFormInput input,
-textarea {
-  @apply rounded-md;
+textarea,
+input[type="number"] {
+  @apply rounded-md p-2;
 }
 
 .amountBtn {
@@ -47,10 +48,20 @@ input[type="text"] {
   @apply rounded-md focus:invalid:ring-pink-500 focus:invalid:border-pink-500  invalid:border-pink-500 invalid:text-pink-600;
 }
 
-button.amount.active {
+active {
   @apply bg-[var(--bg-celadon)];
 }
 
 .support-btn {
   @apply w-full rounded-lg bg-[var(--bg-celadon)] p-2 font-semibold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

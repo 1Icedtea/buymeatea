@@ -59,15 +59,27 @@ export default function DonationForm() {
           </button>
         </div>
         <input
+          className="userFormInput"
           type="number"
           placeholder="Any $ amount helps!"
           onChange={(ev) => setAmountInValue(ev.target.value)}
           value={amountInValue}
         />
-        <input type="text" name="" id="" placeholder="Tell us your name" />
-        <textarea name="" id="" placeholder="Say something nice"></textarea>
+        <input
+          className="userFormInput"
+          type="text"
+          name="name"
+          id=""
+          placeholder="Tell us your name"
+        />
+        <textarea
+          className="userFormInput"
+          name="message"
+          id=""
+          placeholder="Say something nice"
+        ></textarea>
         <button type="button" className="support-btn">
-          Support ${amount * 5}
+          Support ${amount}
         </button>
       </div>
     </form>
