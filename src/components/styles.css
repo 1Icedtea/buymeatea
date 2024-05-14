@@ -47,7 +47,7 @@ input[type="text"] {
   @apply rounded-md focus:invalid:ring-pink-500 focus:invalid:border-pink-500  invalid:border-pink-500 invalid:text-pink-600;
 }
 
-.active {
+button.amount.active {
   @apply bg-[var(--bg-celadon)];
 }
 

@@ -28,6 +28,7 @@ export default function DonationForm() {
           <FontAwesomeIcon icon={faLeaf} />
           <span>x</span>
           <button
+            type="button"
             onClick={() => {
               setAmount(1);
               setAmountInValue("1");
@@ -37,6 +38,7 @@ export default function DonationForm() {
             1
           </button>
           <button
+            type="button"
             onClick={() => {
               setAmount(10);
               setAmountInValue("10");
@@ -46,6 +48,7 @@ export default function DonationForm() {
             10
           </button>
           <button
+            type="button"
             onClick={() => {
               setAmount(50);
               setAmountInValue("50");
@@ -63,7 +66,9 @@ export default function DonationForm() {
         />
         <input type="text" name="" id="" placeholder="Tell us your name" />
         <textarea name="" id="" placeholder="Say something nice"></textarea>
-        <button className="support-btn">Support ${amount * 5}</button>
+        <button type="button" className="support-btn">
+          Support ${amount * 5}
+        </button>
       </div>
     </form>
   );
