@@ -20,8 +20,7 @@ export default function UploadButton({
       formData.set("file", file);
       const result = await uploadToS3(formData);
       onUploadComplete(result.url as string);
-      console.log({ result });
-      console.log(target);
+      console.log({ result, file, formData });
     }
   }
 

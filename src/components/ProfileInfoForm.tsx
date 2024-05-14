@@ -31,7 +31,7 @@ export default function ProfileInfoForm({ profileInfo }: Props) {
 
   return (
     <form action={handleFormAction}>
-      <div className={`user-cover-edit-container bg-[${coverURL}]`}>
+      <div className={`user-cover-edit-container`}>
         <Image
           src={coverURL || ""}
           alt="cover image"

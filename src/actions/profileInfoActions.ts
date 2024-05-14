@@ -29,5 +29,6 @@ export async function saveProfile(formData: FormData) {
     });
   }
   console.log({ profileInfoDoc });
+
   return true;
 }

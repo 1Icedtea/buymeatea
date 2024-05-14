@@ -50,3 +50,7 @@ input[type="text"] {
 .active {
   @apply bg-[var(--bg-celadon)];
 }
+
+.support-btn {
+  @apply w-full rounded-lg bg-[var(--bg-celadon)] p-2 font-semibold;
+}
